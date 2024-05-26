@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
 
         $items = \App\Models\Item::all();
 
-        Purchase::factory(100)->create() //Purchaseのダミーデータ作成
+        Purchase::factory(30000)->create() //Purchaseのダミーデータ作成
         ->each(function(Purchase $purchase) use ($items){
             $purchase->items()->attach( //中間テーブルのダミーデータ作成
                 $items->random(rand(1,3))->pluck('id')->toArray(), //外部キー登録
