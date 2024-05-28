@@ -54,11 +54,11 @@ class DecileService
     DB::statement('set @row_num = 0;');
     $subQuery = DB::table($subQuery)
     ->selectRaw("
-    row_num,
-    customer_id,
-    customer_name,
-    total,
-    case
+      row_num,
+      customer_id,
+      customer_name,
+      total,
+      case
         when ? <= row_num and row_num < ? then 1
         when ? <= row_num and row_num < ? then 2
         when ? <= row_num and row_num < ? then 3
